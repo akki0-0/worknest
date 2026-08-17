@@ -1,26 +1,112 @@
 @import "tailwindcss";
 
+@theme {
+  /* ========================================
+     WORKNEST COLORS
+     ======================================== */
+
+  --color-brand: #00897b;
+  --color-brand-hover: #00796b;
+  --color-brand-light: #e8f5f3;
+
+  --color-navy: #102a43;
+  --color-navy-light: #243b53;
+  --color-navy-muted: #486581;
+
+  --color-blue: #2979ff;
+  --color-blue-light: #eaf2ff;
+
+  /* Neutral */
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+
+  --color-text: #0f172a;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748b;
+  --color-text-disabled: #94a3b8;
+
+  /* Semantic */
+  --color-success: #2e7d32;
+  --color-success-light: #e8f5e9;
+
+  --color-warning: #f59e0b;
+  --color-warning-light: #fff7e6;
+
+  --color-danger: #c62828;
+  --color-danger-light: #fdecec;
+
+  --color-info: #2979ff;
+  --color-info-light: #eaf2ff;
+
+  /* ========================================
+     TYPOGRAPHY
+     ======================================== */
+
+  --font-sans: Arial, Helvetica, sans-serif;
+
+  --font-size-page-title: 30px;
+  --font-size-section-title: 28px;
+  --font-size-card-title: 24px;
+  --font-size-body: 20px;
+  --font-size-small: 16px;
+  --font-size-caption: 12px;
+
+  /* ========================================
+     SPACING
+     ======================================== */
+
+  --spacing: 4px;
+
+  /* ========================================
+     BORDER RADIUS
+     ======================================== */
+
+  --radius-control: 8px;
+  --radius-card: 12px;
+  --radius-modal: 16px;
+  --radius-pill: 100px;
+
+  /* ========================================
+     SHADOWS
+     ======================================== */
+
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.04);
+
+  --shadow-dropdown: 0 4px 12px rgb(15 23 42 / 0.1);
+
+  --shadow-modal: 0 10px 30px rgb(15 23 42 / 0.15);
+
+  /* ========================================
+     BREAKPOINTS
+     ======================================== */
+
+  --breakpoint-xs: 320px;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1440px;
+}
+
+/* ========================================
+   GLOBAL STYLES
+   ======================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  min-height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans);
 }
