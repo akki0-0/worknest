@@ -1,11 +1,9 @@
 import { Collection, Db } from "mongodb";
 import mongodbClientPromise from "./mongodb";
 
-const databaseName = "worknest";
-
 export async function getDatabase(): Promise<Db> {
   const client = await mongodbClientPromise;
-  return client.db(databaseName);
+  return client.db("worknest");
 }
 
 export async function getUsersCollection(): Promise<Collection> {
