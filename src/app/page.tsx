@@ -1,5 +1,6 @@
 import Image from "next/image";
+import Register from "./(auth)/register/page";
 
 export default function Worknest() {
-  return <div className="text-brand-hover">Worknest</div>;
+  return <Register />;
 }

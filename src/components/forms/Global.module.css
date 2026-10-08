@@ -1,0 +1,25 @@
+.label {
+  color: #3f4254;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.textFieldBox {
+  border: 1px solid #e1e3ea;
+}
+
+.formColumnBox {
+  background-color: white;
+  width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0px 8px 14px 0px #0f2a510a;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.blueBackground {
+  background: radial-gradient(circle, #00d2ff 0%, #004a8a 100%);
+}
