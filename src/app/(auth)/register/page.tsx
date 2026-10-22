@@ -27,15 +27,30 @@ export default function Register({}: {}) {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={`flex flex-row h-screen w-full`}>
-        <div className="flex-1 bg-white flex items-center justify-center">
+        <div className="flex-1 flex-col gap-9 bg-[#EAF9F9] flex items-center justify-center">
           <Image
             src={"/media/semi/register/register.png"}
-            width={420}
-            height={420}
+            width={475}
+            height={475}
             alt="register"
+            style={{ borderRadius: "16px" }}
+          />
+          <Image
+            src={"/media/semi/register/organise.png"}
+            width={475}
+            height={475}
+            alt="register"
+            style={{ borderRadius: "16px" }}
+          />
+          <Image
+            src={"/media/semi/register/collaborate.png"}
+            width={475}
+            height={475}
+            alt="register"
+            style={{ borderRadius: "16px" }}
           />
         </div>
-        <div className="flex-1 bg-white flex items-center justify-center">
+        <div className="flex-1 bg-[#EAF9F9] flex items-center justify-center">
           <div className={global.formColumnBox}>
             <TextField
               label="Email"
@@ -44,10 +59,11 @@ export default function Register({}: {}) {
               {...register("email", {
                 required: "Email is required",
                 pattern: {
-                  value: /^[^s@]+@[^s@]+.[^s@]+$/,
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                   message: "Please enter a valid email address.",
                 },
               })}
+              placeholder="Enter Email"
               error={errors.email?.message}
             />
             <TextField
@@ -67,6 +83,7 @@ export default function Register({}: {}) {
                     "Password must contain one uppercase letter, one lowercase letter, one number, and one special character.",
                 },
               })}
+              placeholder="Enter Password"
               error={errors.password?.message}
             />
             <TextField
@@ -78,9 +95,14 @@ export default function Register({}: {}) {
                 validate: (value) =>
                   value === password || "Passwords do not match",
               })}
+              placeholder="Enter Confirm Password"
               error={errors.confirmPassword?.message}
             />
-            <button type="submit" disabled={isSubmitting}>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className={global.submitCTA}
+            >
               Register
             </button>
           </div>

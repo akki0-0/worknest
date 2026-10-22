@@ -7,6 +7,14 @@
 
 .textFieldBox {
   border: 1px solid #e1e3ea;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.textFieldBox::placeholder {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .formColumnBox {
@@ -22,4 +30,21 @@
 
 .blueBackground {
   background: radial-gradient(circle, #00d2ff 0%, #004a8a 100%);
+}
+
+.submitCTA {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  background-color: #00897b;
+  width: fit-content;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+
+.submitCTA:hover {
+  background-color: #118175;
 }
