@@ -1,9 +1,14 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import TextField from "@/components/forms/TextFiled/TextField";
 import global from "../../../components/forms/Global.module.css";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import Axios from "axios";
+import { registerUser } from "@/app/rest-api/auth";
+import { useSnackbar } from "notistack";
+import Button from "@/components/forms/Button/Button";
 
 interface RegisterForm {
   email: string;
@@ -11,6 +16,8 @@ interface RegisterForm {
   confirmPassword: string;
 }
 export default function Register({}: {}) {
+  const router = useRouter();
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const {
     handleSubmit,
     formState: { errors, isSubmitting },
@@ -20,8 +27,23 @@ export default function Register({}: {}) {
 
   const password = watch("password");
 
-  const onSubmit = (data: RegisterForm) => {
-    console.log(data);
+  const onSubmit = async (data: RegisterForm) => {
+    try {
+      let response = await registerUser({
+        email: data.email,
+        password: data.password,
+      });
+      if (response?.data?.success) {
+        enqueueSnackbar("Registered Successfully", { variant: "success" });
+      }
+    } catch (error) {
+      if (Axios.isAxiosError(error)) {
+        const statusCode = error.response?.status;
+        if (statusCode === 409) {
+          enqueueSnackbar("User already registered", { variant: "error" });
+        }
+      }
+    }
   };
 
   return (
@@ -98,13 +120,13 @@ export default function Register({}: {}) {
               placeholder="Enter Confirm Password"
               error={errors.confirmPassword?.message}
             />
-            <button
-              type="submit"
-              disabled={isSubmitting}
+            <Button
+              buttonType="submit"
               className={global.submitCTA}
+              isLoading={isSubmitting}
             >
               Register
-            </button>
+            </Button>
           </div>
         </div>
       </div>

@@ -5,14 +5,14 @@ const uri = process.env.MONGODB_URI;
 if (!uri) {
   throw new Error("MONGODB_URI is not defined in environment variables");
 }
-
+console.log(uri, "uriuri");
 const globalForMongoDB = globalThis as unknown as {
   mongodbClientPromise: Promise<MongoClient> | undefined;
 };
 
 const mongodbClientPromise =
   globalForMongoDB.mongodbClientPromise ?? new MongoClient(uri).connect();
-
+console.log(new MongoClient(uri).connect(), "new MongoClient(uri)");
 if (process.env.NODE_ENV !== "production") {
   globalForMongoDB.mongodbClientPromise = mongodbClientPromise;
 }
